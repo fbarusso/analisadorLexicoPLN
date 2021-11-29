@@ -6,6 +6,7 @@ def criar_tabela_hash():
     return tabela_hash
 
 
+# one_at_a_time (JENKINS)
 def funcao_hash(chave):
     indice = 0
     i = len(chave) - 1
@@ -17,13 +18,10 @@ def funcao_hash(chave):
     indice += (indice << 3)
     indice ^= (indice >> 11)
     indice += (indice << 15)
-    print('Insert', chave, 'at', indice % TAMANHO)
     return indice % TAMANHO
 
 
 def inserir(tabela_hash, objeto):
-    # objeto[0] = palavra
-    # palavra = chave
     chave = objeto[0]
     indice = funcao_hash(chave)
     chave_existe = False
